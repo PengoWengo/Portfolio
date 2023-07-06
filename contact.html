@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Contact</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="img/favicon-32x32.png">
+    </head>
+    <body>
+        <div id="wrapper">
+        <header>
+            <h1><a href="index.html"> Alex Gillett</a></h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pictures.html">Pictures</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="future.html">Future</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+        </nav>
+        <main>
+            <div class="container">
+                <div class="auroral-northern"></div>
+              </div>
+            <h2>Keep in contact</h2>
+            <h3><a href="https://docs.google.com/document/d/1t8sBucQUae48ZdtMKL6SxKXvFiOWw9uo4qSmGbGM734/edit"> Link to my Resume as well</a></h3>
+            <p>Want to keep in contact? Fill out this information so I can get your information to get in touch with you</p>
+            <form id="submit-to-google-sheet">
+                <label for="myName">Name:</label>
+                <input name="Name" placeholder="Name Please" type="text" required>
+                <label for id="myEmail">Email:</label>
+                <input name="Email" placeholder="Email Please" type="email" required>
+                <label for="myExperience">Comments:</label>
+                <textarea name="Comments" required row=2 cols=20 type=text></textarea>
+                <button type="submit">Send Info</button>
+            </form>
+            <script>
+                const scriptURL = "https://script.google.com/macros/s/AKfycbycoQgqNQn50HOycgA36ewJLYwTBTpPqu-rG_oPsX9pqNzZmuCSm8yffPmmcfwMeicW/exec"
+                const form = document.forms['submit-to-google-sheet']
+                  form.addEventListener('submit', e => {
+                      e.preventDefault()
+                      fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+                          .then(response => console.log('Success!', response))
+                          .catch(error => console.error('Error!', error.message))
+                    })
+              </script>
+            </main>
+            <footer>
+                Copyright &copy; 2020 Alexander Gillett <br>
+                <a href="mailto:alexandergillett218@gmail.com">Email Me</a>
+            </footer> 
+        </div>
+    </body>
+</html>
