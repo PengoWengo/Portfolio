@@ -90,7 +90,7 @@ h4{
 }
 h3{
     color: #643e6c;
-    padding-left: 3em;
+    padding-left: 2em;
     padding-right: 2em;
 }
 
@@ -220,7 +220,7 @@ button[submit]{
   }
   
   .container {
-    width: 73.3vw;
+    width: 75.8vw;
     height: 50vh;
     overflow: hidden;
     position: relative;
