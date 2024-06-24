@@ -29,7 +29,7 @@
             <h2>Keep in contact</h2>
             <h3><a href="https://docs.google.com/document/d/1t8sBucQUae48ZdtMKL6SxKXvFiOWw9uo4qSmGbGM734/edit"> Link to my Resume</a></h3>
             <p>Want to keep in contact? Fill out this information so I can get your information to get in touch with you</p>
-            <form id="submit-to-google-sheet">
+            <form id='submit-to-google-sheet' method="post" action="https://script.google.com/macros/s/AKfycbwMzi3EpH8akMjclffS_yA_eygVZr0KNjSR379TVV0AgGMXOCcU6PZaptevKGILWheu/exec">
                 <label for="myName">Name:</label>
                 <input name="Name" placeholder="Name Please" type="text" required>
                 <label for id="myEmail">Email:</label>
@@ -39,15 +39,19 @@
                 <button type="submit">Send Info</button>
             </form>
             <script>
-                const scriptURL = "https://script.google.com/macros/s/AKfycbycoQgqNQn50HOycgA36ewJLYwTBTpPqu-rG_oPsX9pqNzZmuCSm8yffPmmcfwMeicW/exec"
+                const scriptURL = "https://script.google.com/macros/s/AKfycbw9bCIokR5Oq_a7LMPYHgFzCL3BcJhhG3SXCQMHJAk4B5XfNR3RlQN3e9xsDPrBU1Dj/exec"
                 const form = document.forms['submit-to-google-sheet']
                   form.addEventListener('submit', e => {
                       e.preventDefault()
                       fetch(scriptURL, {method: 'POST', body: new FormData(form)})
                           .then(response => console.log('Success!', response))
                           .catch(error => console.error('Error!', error.message))
+                          document.getElementById("submit-to-google-sheet").reset();
                     })
               </script>
+
+
+              
             </main>
             <footer>
                 Copyright &copy; 2020 Alexander Gillett <br>
